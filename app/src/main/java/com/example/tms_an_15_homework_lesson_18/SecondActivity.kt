@@ -11,17 +11,17 @@ class SecondActivity : AppCompatActivity() {
     lateinit var pass: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_second)
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_second)
 
-    log = findViewById(R.id.log)
-    pass = findViewById(R.id.passw)
+        log = findViewById(R.id.log)
+        pass = findViewById(R.id.passw)
 
-    val bundle = intent.extras
-    println(bundle)
-    if (bundle!=null) {
-        log.text = "login = ${bundle.getString("log")}"
-        pass.text = "password = ${bundle.getString("pass")}"
+        val bundle = intent.extras
+        println(bundle)
+       if (bundle!=null) {
+           log.text = "login = ${bundle.getString("log")}"
+           pass.text = "password = ${bundle.getString("pass")}"
        }
     }
 }

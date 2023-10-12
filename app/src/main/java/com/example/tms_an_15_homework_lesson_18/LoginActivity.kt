@@ -23,17 +23,14 @@ class LoginActivity : AppCompatActivity() {
 
         button.setOnClickListener {
             val bundle = Bundle()
-            if (login.length() >= 6 && password.length() >= 6){
-
-            bundle.putString("log",login.text.toString())
-            bundle.putString("pass", password.text.toString())
-            val intent = Intent(this,SecondActivity::class.java)
-            intent.putExtras(bundle)
-            startActivity(intent)}
-
-            else{
-                Toast.makeText(this,"Password must be more than 6 characters", Toast.LENGTH_LONG).show()
-
+            if (login.length() >= Utils.LOG_LENGTH && password.length() >= Utils.PASS_LENGTH) {
+                bundle.putString(Utils.KEY_LOG, login.text.toString())
+                bundle.putString(Utils.KEY_PASS, password.text.toString())
+                val intent = Intent(this, SecondActivity::class.java)
+                intent.putExtras(bundle)
+                startActivity(intent)}
+            else { Toast.makeText(this, "Password must be more than 6 characters", Toast.LENGTH_LONG)
+                    .show()
             }
         }
     }
